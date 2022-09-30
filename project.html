@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Projects- Mk portfolio</title>
+		<link rel="stylesheet" href="./Styles/index.scss" />
+		<link rel="stylesheet" href="./Styles/project.scss" />
+			<title>About- Mknuel portfolio</title>
+        
+           <!-- greensock -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+    <!-- locomotive-scroll -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.2.5/dist/locomotive-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.2.5/dist/locomotive-scroll.min.js"></script>
+        
+ 
+	</head>
+	<body id="js-scroll">
+		<div class="wrapper">
+			<nav class="menu">
+				<div class="menu__logo">
+					<a href="index.html">mk</a>
+				</div>
+
+				<div class="menu__items">
+					<div class="menu__items-link active">
+						<a href="index.html">Projects</a>
+					</div>
+					<div class="menu__items-link">
+						<a href="about.html"> About </a>
+					</div>
+				</div>
+			</nav>
+
+			<!-- project section -->
+            <div class="project__container" data-scroll-section>
+
+                <div class="project__container-title" data-scroll>
+                    <h1 class="anime-js-title"> Creative mix </h1>
+
+				<div class="project__container-subtitle">
+					<p>front end web development</p>
+				</div>
+
+				<div class="project__container-images" data-scroll>
+					<div class="project__image project__image-one" data-scroll data-scroll-speed="1"></div>
+					<div class="project__image project__image-two" data-scroll data-scroll-speed="4"></div>
+					<div class="project__image project__image-three"data-scroll data-scroll-speed="2"></div>
+					<div class="project__image project__image-four" data-scroll data-scroll-speed="4"></div>
+					<!-- <div class="project__image project__image-one"></div> -->
+				</div>
+
+				<div class="project-next-link">
+					<a href="project.html">Next</a>
+				</div>
+			</div>
+        </div>
+	
+		<script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+
+<script>
+	  const scroll= new LocomotiveScroll({
+                el: document.querySelector("#js-scroll"),
+                smooth:true,
+                smoothMobile:true,
+                inertia:0.75
+
+            })
+
+			let textWrapper= document.querySelector(".anime-js-title")
+			// textWrapper.innerHtml = 
+			
+			const lo = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>")
+			
+			textWrapper.innerHTML = lo
+
+
+			const tl=anime.timeline()
+			tl.add({
+				targets:".anime-js-title .letter",
+				translateY:[100,0],
+				translateZ:0,
+				opacity:[0,1],
+				easing:"easeOutExpo",
+				duration:1200,
+				delay:(el,i)=>600+30*i
+
+			})
+
+			TweenMax.from(".project__container-subtitle",2,{
+				y:10,
+				opacity:0,
+				ease:Expo.easeInOut
+			})
+			TweenMax.from(".project__image-one",2,{
+			
+				opacity:0,
+				ease:Expo.easeInOut
+			})
+
+
+</script>
+	</body>
+</html>
